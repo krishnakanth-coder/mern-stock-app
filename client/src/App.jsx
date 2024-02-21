@@ -1,19 +1,28 @@
 /** @format */
 
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Signin from './pages/Signin';
+import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div>
-        <h1 className='text-3xl text-red-500'>MERN stock</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <h1>Header</h1>
+      <Routes>
+        <Route path='/' element={<Home />} />
+
+        <Route path='/about' element={<About />} />
+        <Route path='/projects' element={<Projects />} />
+        <Route path='/signin' element={<Signin />} />
+        <Route path='/signout' element={<SignUp />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
